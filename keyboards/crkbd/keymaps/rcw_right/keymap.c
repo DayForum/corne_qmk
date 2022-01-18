@@ -25,15 +25,15 @@ extern uint8_t is_master;
 #define _QWERTY 0
 #define _LOWER 1
 #define _RAISE 2
-#define _GGG 3
-#define _SPECIAL 4
+#define _GAME 3
+#define _GAME_ALT 4
 
 enum custom_keycodes {
   QWERTY = SAFE_RANGE,
   LOWER,
   RAISE,
-  GGG,
-  SPECIAL
+  GAME,
+  GAME_ALT
 };
 
 enum macro_keycodes {
@@ -60,8 +60,8 @@ enum macro_keycodes {
 
 #define KC_SRAISE LT(_RAISE, KC_SPC)
 #define KC_SLOWER LT(_LOWER, KC_SPC)
-#define KC_GG TO(_GGG)
-#define KC_GGM MO(_SPECIAL)
+#define KC_GAME TO(_GAME)
+#define KC_GAME_ALT MO(_GAME_ALT)
 #define KC_QWER TO(_QWERTY)
 #define KC_LOW MO(_LOWER)
 #define KC_RAIS MO(_RAISE)
@@ -85,7 +85,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
        TRNS,     0,    4,    5,    6,   INSERT,                   LEFT,  DOWN,    UP, RIGHT,   F11,   F12,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-       TRNS, XXXXX,    1,    2,    3,    XXXXX,                     F7,   F8,    F9,   F10,   GG,    TRNS,\
+       TRNS, XXXXX,    1,    2,    3,    XXXXX,                     F7,   F8,    F9,   F10,   GAME,    TRNS,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
                                   LALT,  TRNS,   LSFT,     SPC,  RSFT, LGUI \
                                //`--------------------'  `--------------------'
@@ -102,7 +102,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                   LALT,   LOW,  LSFT,      SPC, TRNS, LGUI \
                               //`--------------------'  `--------------------'
   ),
-  [_GGG] = LAYOUT( \
+  [_GAME] = LAYOUT( \
   //,-----------------------------------------.                ,-----------------------------------------.
       KC_T, KC_TAB, KC_Q, KC_W,  KC_E,  KC_R,                    KC_Y, KC_U,  KC_I,  KC_O, KC_P, KC_LBRC,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
@@ -110,11 +110,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
       KC_B, KC_LCTL,KC_Z, KC_X,  KC_C,  KC_V,                    KC_N, KC_M, KC_COMM,KC_DOT,KC_SLSH,KC_BSPC,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                                KC_LALT,KC_GGM,KC_SPC,  KC_QWER,KC_ENT,KC_SPC \
+                                KC_LALT,KC_GAME_ALT,KC_SPC,  KC_QWER,KC_ENT,KC_SPC \
                               //`--------------------'  `--------------------'
   ),
 
-  [_SPECIAL] = LAYOUT_kc( \
+  [_GAME_ALT] = LAYOUT_kc( \
   //,-----------------------------------------.                ,-----------------------------------------.
         ESC,     1,     2, TRNS,     3,     4,                       F1,   F2,    F3,   F4,     F5,    F6,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
@@ -140,7 +140,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   process_record_user_oled(keycode, record);
 
   switch (keycode) {
-    case SPECIAL:
+    case GAME_ALT:
       if (record->event.pressed) {
           layer_on(_SPECIAL);
       } else {
@@ -167,10 +167,10 @@ void matrix_scan_user(void) {
       case _RAISE:
         rgb_matrix_mode(RGB_MATRIX_ALPHAS_MODS);
       break;
-      case _GGG:
+      case _GAME:
         rgb_matrix_mode(RGB_MATRIX_BAND_SAT);
       break;
-      case _SPECIAL:
+      case _GAME_ALT:
         rgb_matrix_mode(RGB_MATRIX_BAND_SAT);
       break;
     }
