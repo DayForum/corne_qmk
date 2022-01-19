@@ -142,9 +142,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case GAME_ALT:
       if (record->event.pressed) {
-          layer_on(_SPECIAL);
+          layer_on(_GAME_ALT);
       } else {
-          layer_off(_SPECIAL);
+          layer_off(_GAME_ALT);
       }
       return false;
 

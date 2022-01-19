@@ -4,8 +4,8 @@ enum crkbd_layers {
   _QWERTY,
   _LOWER,
   _RAISE,
-  _GGG,
-  _SPECIAL
+  _GAME,
+  _GAME_ALT
 };
 
 

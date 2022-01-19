@@ -27,13 +27,13 @@
     #define RGBLIGHT_HUE_STEP 8
     #define RGBLIGHT_SAT_STEP 8
     #define RGBLIGHT_VAL_STEP 5
-    #define RGBLIGHT_LIMIT_VAL 120
+    #define RGBLIGHT_LIMIT_VAL 255
     #define RGBLIGHT_ANIMATIONS
 #endif
 
 #ifdef RGB_MATRIX_ENABLE
     #define RGB_DISABLE_WHEN_USB_SUSPENDED true // turn off effects when suspended
-    #define RGB_MATRIX_MAXIMUM_BRIGHTNESS 120    // limits maximum brightness of LEDs to 200 out of 255. If not defined maximum brightness is set to 255
+    #define RGB_MATRIX_MAXIMUM_BRIGHTNESS 255    // limits maximum brightness of LEDs to 200 out of 255. If not defined maximum brightness is set to 255
     #define RGB_MATRIX_HUE_STEP 8
     #define RGB_MATRIX_SAT_STEP 8
     #define RGB_MATRIX_VAL_STEP 5

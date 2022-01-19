@@ -121,12 +121,12 @@ uint8_t render_layer_state(void) {
             oled_write_P(PSTR("RAISE"), false);
             len = 5;
             break;
-        case _GGG:
+        case _GAME:
             oled_write_P(PSTR("GAME"), false);
             len = 4;
             break;
-        case _SPECIAL:
-            oled_write_P(PSTR("AGAME"), false);
+        case _GAME_ALT:
+            oled_write_P(PSTR("GAME_ALT"), false);
             len = 5;
             break;
     }
