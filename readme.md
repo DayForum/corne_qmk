@@ -28,10 +28,15 @@ just double press: Y
 
 ## 5. You will get an error
 `ERROR Can't find arm-none-eabi-gcc in your path.`
+
 `ERROR Can't find avr-gcc in your path.`
+
 `ERROR Can't find avrdude in your path.`
+
 `ERROR Can't find dfu-programmer in your path.`
+
 `ERROR Can't find dfu-util in your path.`
+
 
 just triple press: Y
 
