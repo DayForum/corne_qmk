@@ -1,37 +1,64 @@
-# Quantum Mechanical Keyboard Firmware
+# Change your path in 4, 6 and 7 steps!
 
-[![Current Version](https://img.shields.io/github/tag/qmk/qmk_firmware.svg)](https://github.com/qmk/qmk_firmware/tags)
-[![Build Status](https://travis-ci.org/qmk/qmk_firmware.svg?branch=master)](https://travis-ci.org/qmk/qmk_firmware)
-[![Discord](https://img.shields.io/discord/440868230475677696.svg)](https://discord.gg/Uq7gcHh)
-[![Docs Status](https://img.shields.io/badge/docs-ready-orange.svg)](https://docs.qmk.fm)
-[![GitHub contributors](https://img.shields.io/github/contributors/qmk/qmk_firmware.svg)](https://github.com/qmk/qmk_firmware/pulse/monthly)
-[![GitHub forks](https://img.shields.io/github/forks/qmk/qmk_firmware.svg?style=social&label=Fork)](https://github.com/qmk/qmk_firmware/)
 
-This is a keyboard firmware based on the [tmk\_keyboard firmware](https://github.com/tmk/tmk_keyboard) with some useful features for Atmel AVR and ARM controllers, and more specifically, the [OLKB product line](https://olkb.com), the [ErgoDox EZ](https://ergodox-ez.com) keyboard, and the [Clueboard product line](https://clueboard.co).
 
-## Documentation
+## 1. Download
+```
+https://www.msys2.org/
+```
 
-* [See the official documentation on docs.qmk.fm](https://docs.qmk.fm)
+## 2. First run after install
+```
+pacman -Syu
+```
 
-The docs are powered by [Docsify](https://docsify.js.org/) and hosted on [GitHub](/docs/). They are also viewable offline; see [Previewing the Documentation](https://docs.qmk.fm/#/contributing?id=previewing-the-documentation) for more details.
+## 3. Second run 'MSYS2 MSYS'
+```
+pacman -Su
+```
 
-You can request changes by making a fork and opening a [pull request](https://github.com/qmk/qmk_firmware/pulls), or by clicking the "Edit this page" link at the bottom of any page.
+## 4. Third run 'MSYS2 MiniGW x64'
+```
+pacman --needed --noconfirm --disable-download-timeout -S git mingw-w64-x86_64-toolchain mingw-w64-x86_64-python3-pip
+python3 -m pip install qmk==0.0.37
+qmk setup -H "C:\Users\Day\keyboards\corne_qmk" DayForum/corne_qmk
+```
 
-## Supported Keyboards
+just double press: Y
 
-* [Planck](/keyboards/planck/)
-* [Preonic](/keyboards/preonic/)
-* [ErgoDox EZ](/keyboards/ergodox_ez/)
-* [Clueboard](/keyboards/clueboard/)
-* [Cluepad](/keyboards/clueboard/17/)
-* [Atreus](/keyboards/atreus/)
+## 5. You will get an error
+`ERROR Can't find arm-none-eabi-gcc in your path.`
+`ERROR Can't find avr-gcc in your path.`
+`ERROR Can't find avrdude in your path.`
+`ERROR Can't find dfu-programmer in your path.`
+`ERROR Can't find dfu-util in your path.`
 
-The project also includes community support for [lots of other keyboards](/keyboards/).
+just triple press: Y
 
-## Maintainers
+## 6. Pre-last step
+```
+qmk setup -H "C:\Users\Day\keyboards\corne_qmk" DayForum/corne_qmk
+```
+You will get an - `QMK is ready to go` - it false info
 
-QMK is developed and maintained by Jack Humbert of OLKB with contributions from the community, and of course, [Hasu](https://github.com/tmk). The OLKB product firmwares are maintained by [Jack Humbert](https://github.com/jackhumbert), the Ergodox EZ by [ZSA Technology Labs](https://github.com/zsa), the Clueboard by [Zach White](https://github.com/skullydazed), and the Atreus by [Phil Hagelberg](https://github.com/technomancy).
+## 7. And last step
+```
+qmk config user.qmk_home="C:\Users\Day\keyboards\corne_qmk"
+```
 
-## Official Website
+## 8. Compile firmware
+```
+qmk compile -kb crkbd -km rcw_left
+qmk compile -kb crkbd -km rcw_right
+```
 
-[qmk.fm](https://qmk.fm) is the official website of QMK, where you can find links to this page, the documentation, and the keyboards supported by QMK.
+## 9. Default folder
+```
+C:\Users\Day\keyboards\corne_qmk\.build
+```
+
+## 10. Default path keymap.c file for edit
+```
+C:\Users\Day\keyboards\corne_qmk\keyboards\crkbd\keymaps\rcw_left\keymap.c
+C:\Users\Day\keyboards\corne_qmk\keyboards\crkbd\keymaps\rcw_right\keymap.c
+```
