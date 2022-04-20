@@ -8,6 +8,7 @@ using PowerShell
 (New-Object System.Net.WebClient).DownloadFile( 'https://github.com/msys2/msys2-installer/releases/download/2022-03-19/msys2-x86_64-20220319.exe', 'msys2.exe' )
 ./msys2.exe
 ```
+
 ##### When the installation is complete you must update packages via Pacman
 
 ```sh
@@ -42,15 +43,17 @@ qmk setup -H "C:/$HOMEPATH/keyboards/corne_qmk" DayForum/corne_qmk
 qmk setup -H "C:/$HOMEPATH/keyboards/corne_qmk" DayForum/corne_qmk
 qmk config user.qmk_home="C:/$HOMEPATH/keyboards/corne_qmk"
 ```
+
 ##### Compiling firmware
 ```sh
 qmk compile -kb crkbd -km rcw_left
 qmk compile -kb crkbd -km rcw_right
 ```
-###### If compilation was ended successfully you will find ready to flash files in 
-`С:\$HOMEPATH\keyboards\corne_qmk\.build`
+
+##### If compilation was ended successfully you will find ready to flash files in 
+`%HOMEPATH%\keyboards\corne_qmk\.build`
 
 ### Customizing keymap
 ##### By default keymap is located at:
-`С:\$HOMEPATH\keyboards\corne_qmk\keyboards\rcw_left\keymap.c` - Left hand layout
-`С:\$HOMEPATH\keyboards\corne_qmk\keyboards\rcw_right\keymap.c` - Right hand layout
+`%HOMEPATH%\keyboards\corne_qmk\keyboards\crkbd\keymaps\rcw_left\keymap.c` - Left hand layout
+`%HOMEPATH%\keyboards\corne_qmk\keyboards\crkbd\keymaps\rcw_right\keymap.c` - Right hand layout
